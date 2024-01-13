@@ -1,7 +1,7 @@
 {
 	"name": "builtin-modules-static",
 	"version": "0.1.0",
-	"description": "",
+	"description": "Static lists of Node.js's builtin modules for various versions.",
 	"author": "uncenter <hi@uncenter.dev>",
 	"repository": "uncenter/builtin-modules-static",
 	"license": "MIT",
