@@ -9,10 +9,9 @@
 		"README.md",
 		"LICENSE"
 	],
-	"main": "./src/index.js",
 	"type": "commonjs",
+	"main": "./lib/index.js",
 	"scripts": {
-		"make": "node scripts/make.js",
 		"test": "vitest",
 		"lint": "eslint .",
 		"format": "prettier --write ."

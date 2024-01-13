@@ -13,22 +13,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Install dependencies
-        run: pnpm install --dev
+        run: cargo install fnm
 
-      - name: Make
-        run: pnpm make
+      - name: Make all versions
+        run: ./scripts/all-versions.sh
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
-          message: "chore: update builtin-modules.json"
+          message: "chore: update modules lists"

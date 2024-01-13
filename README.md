@@ -1,6 +1,6 @@
 # builtin-modules-static
 
-[sindresorhus/builtin-modules](https://github.com/sindresorhus/builtin-modules), but completely static, no polyfill for browsers needed.
+[sindresorhus/builtin-modules](https://github.com/sindresorhus/builtin-modules), but completely static.
 
 ## Installation
 
@@ -14,9 +14,27 @@ bun add builtin-modules-static
 ## Usage
 
 ```ts
-const builtinModules = require('builtin-modules-static');
+// ESM
+import all from 'builtin-modules-static';
+// CJS
+const all = require('builtin-modules-static');
 
-builtinModules.includes('fs');
+all.v20.includes('fs/promises'); // true
+//  ^^^ The list of modules for Node.js v20.
+all.v10.includes('fs/promises'); // false
+//  ^^^ The list of modules for Node.js v10.
+```
+
+Alternatively, you can import just the modules for a specific version.
+
+```ts
+// ESM
+import { v18 } from 'builtin-modules-static';
+// CJS
+const { v18 } = require('builtin-modules-static');
+
+v18.includes('path'); // true
+v18.includes('zimplogulon'); // false
 ```
 
 ## License
